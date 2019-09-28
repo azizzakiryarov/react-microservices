@@ -27,7 +27,7 @@ export default class UserList extends React.Component {
     }
 
     render() {
-        return <ul className="list-group">
+        return <ul className="list-group user-list">
             {this.state.users.map(user =>
                 <li className="list-group-item list-group-item-action" key={user.id}>
                     <NavLink to={`/users/get/${user.id}`}>{user.firstName}{user.lastName}{user.userState}</NavLink>

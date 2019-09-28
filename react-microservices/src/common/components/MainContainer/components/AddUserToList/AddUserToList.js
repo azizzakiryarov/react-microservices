@@ -51,7 +51,7 @@ export default class AddUserToList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='addUserToList'>
                 <div>
                     <div>
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#addUserToList">+ Add User</button>
