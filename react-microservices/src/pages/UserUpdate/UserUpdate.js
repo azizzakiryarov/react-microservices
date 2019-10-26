@@ -1,5 +1,5 @@
 import React from 'react'
-import UserItemUpdate from '../../common/components/MainContainer/components/UserList/components/UserItemUpdate'
+import UserItemUpdate from '../../common/components/MainContainer/components/UserList/components/UserItem/UserItemUpdate'
 
 const UserUpdate = ({ match }) => (
   <div>

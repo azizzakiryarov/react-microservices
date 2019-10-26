@@ -1,10 +1,12 @@
 import React from 'react'
 import './NotFoundPage.css'
+import Navbar from '../../common/components/MainContainer/components/LoginPage/components/Navbar/Navbar'
 
 const Error = () => (
   <div>
-    <h1> Not found page error 404 </h1>
     <div className='Error-message'>
+      <Navbar />
+      <p> Not found page error 404 </p>
       <p>Oooops... something is wrong...</p>
     </div>
   </div>

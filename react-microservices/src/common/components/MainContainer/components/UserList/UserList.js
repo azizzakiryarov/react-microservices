@@ -30,9 +30,9 @@ export default class UserList extends React.Component {
         return <ul className="list-group user-list">
             {this.state.users.map(user =>
                 <li className="list-group-item list-group-item-action" key={user.id}>
-                    <NavLink to={`/users/get/${user.id}`}>{user.firstName}{user.lastName}{user.userState}</NavLink>
-                    <NavLink to={`/users/update/${user.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateUser">Update</button></NavLink>
-                    <button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, user.id)}>x</button>
+                    <NavLink to={`/users/get/${user.id}`}>{user.firstName} {user.lastName} {user.userState}</NavLink>
+                    <NavLink to={`/users/update/${user.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateUser"><i class="fas fa-user-edit"></i></button></NavLink>
+                    <button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, user.id)}><i class="fas fa-user-times"></i></button>
                 </li>)}
         </ul>
     }

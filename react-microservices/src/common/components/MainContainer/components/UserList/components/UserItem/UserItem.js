@@ -17,7 +17,7 @@ export default class UserItem extends React.Component {
 
   render () {
     return (
-      <div className='userDetails'>{this.state.user.firstName}{this.state.user.lastName}<div className='userState'>{this.state.user.userState}</div>
+      <div className='userDetails'>{this.state.user.firstName} {this.state.user.lastName}<div className='userState'>{this.state.user.userState}</div>
       </div>
     )
   }

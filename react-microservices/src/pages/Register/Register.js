@@ -1,14 +1,14 @@
 import React from 'react'
-import LoginPage from '../../common/components/MainContainer/components/LoginPage/LoginPage'
+import RegisterUser from '../../common/components/MainContainer/components/RegisterUser/RegisterUser'
 import Navbar from '../../common/components/MainContainer/components/LoginPage/components/Navbar/Navbar'
 
-const Login = () => (
+const Register = () => (
   <div>
     <div className='login-page'>
       <Navbar />
-      <LoginPage />
+      <RegisterUser />
     </div>
   </div>
 )
 
-export default Login
+export default Register

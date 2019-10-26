@@ -41,17 +41,17 @@ export default class UserItemUpdate extends React.Component {
             '&userName=' + user.userName +
             '&password=' + user.password +
             '&userState=' + user.userState)
-            .then(() => {
-                window.history.back();
+            .then(res => {
+                window.location.replace('http://localhost:3000/users/get/' + res.data.id);
             }).catch(err => {
                 alert(err);
             });
     }
 
     render() {
-        return <div>
+        return <div className="update-users">
             <div>
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateUser">Update</button>
+                <button type="button" className="btn btn-info" data-toggle="modal" data-target="#updateUser"><i class="fas fa-user-edit"></i> Update</button>
             </div>
             <div className="modal fade" id="updateUser" tabIndex="-1" role="dialog" aria-labelledby="updateUserLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -66,13 +66,9 @@ export default class UserItemUpdate extends React.Component {
                             <div>
                                 <form onSubmit={this.handleSubmit.bind(this)}>
                                     <input type="text" id="firstName" className="form-control" name="firstName" placeholder="Firstname" onChange={this.handleChange} />
-                                    <br />
                                     <input type="text" id="lastName" className="form-control" name="lastName" placeholder="Lastname" onChange={this.handleChange} />
-                                    <br />
                                     <input type="text" id="userName" className="form-control" name="userName" placeholder="Username" onChange={this.handleChange} />
-                                    <br />
-                                    <input type="password" id="password" className="form-control" placeholder="Password" onChange={this.handleChange}></input>
-                                    <br />
+                                    <input type="text" id="password" className="form-control" placeholder="Password" onChange={this.handleChange}></input>
                                     <div className="form-group">
                                         <select id="userState" className="form-control" onChange={this.handleChange}>
                                             <option value="ACTIVE">ACTIVE</option>

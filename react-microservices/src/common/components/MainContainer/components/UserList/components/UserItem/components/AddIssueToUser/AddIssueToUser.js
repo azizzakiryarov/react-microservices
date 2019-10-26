@@ -44,7 +44,7 @@ export default class AddIssueToUser extends React.Component {
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="addIssueToUserLabel">Fyll users information</h5>
+                                    <h5 className="modal-title" id="addIssueToUserLabel">Fyll issue information</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -53,12 +53,9 @@ export default class AddIssueToUser extends React.Component {
                                     <div>
                                         <form onSubmit={this.handleSubmit}>
                                             <input type="text" id="comment" className="form-control" placeholder="Comment" onChange={this.handleChange} />
-                                            <button type="button" className="btn btn-primary" type="submit" value="Submit">Save</button>
+                                            <button type="button" className="btn btn-primary" type="submit" value="Submit">Add</button>
                                         </form>
                                     </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

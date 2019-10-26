@@ -1,6 +1,5 @@
 @import 'reset.css';
 @import 'base.css';
-
 body {
 	background-color: white;
 	background-image: url("C:\java-projects\react-microservices\react-microservices\src\pictures\main.jpg");
@@ -322,7 +321,7 @@ input[type='text']:placeholder {
 }
 
 .addIssueToUser{
-	padding: 2% 5%
+	padding: 1% 5%
 }
 
 .userList{
@@ -336,9 +335,106 @@ input[type='text']:placeholder {
 /*user-list*/
 
 .addUserToList{
-	padding: 1% 5%
+	padding: 1% 2%
 }
 
 .user-list{
-	padding: 1% 2%
+	padding: 1% 2% 
 }
+
+/*update-users*/
+
+.update-users{
+	padding: 1% 47%
+}
+
+/*dashboard*/
+/*.dropZone{
+	border-style: solid;
+	border-width: 3px;
+	border-top: 10px;
+	margin: 10px;
+}
+*/
+.container-drag {
+	text-align: center;
+  }
+  
+  .inwork {
+	position: absolute;
+	width: 324px;
+	height: 88%;
+	left: 65px;
+	top: 100px;
+	border-right: 1px dotted;
+	border-left: 1px dotted;
+	border-bottom: 1px dotted;
+  }
+
+  .paused {
+	position: absolute;
+	width: 324px;
+	height: 88%;
+	left: 409px;
+	top: 100px;
+	border-right: 1px dotted;
+	border-left: 1px dotted;
+	border-bottom: 1px dotted;
+  }
+
+  .reopened {
+	position: absolute;
+	width: 324px;
+	height: 88%;
+	left: 754px;
+	top: 100px;
+	border-right: 1px dotted;
+	border-left: 1px dotted;
+	border-bottom: 1px dotted;
+  }
+
+  .solved {
+	position: absolute;
+	width: 324px;
+	height: 88%;
+	left: 1097px;
+	top: 100px;
+	border-right: 1px dotted;
+	border-left: 1px dotted;
+	border-bottom: 1px dotted;
+  }
+
+  .closed {
+	position: absolute;
+	width: 324px;
+    height: 88%;
+    left: 1440px;
+	top: 100px;
+	border-right: 1px dotted;
+	border-left: 1px dotted;
+	border-bottom: 1px dotted;
+  }
+  
+  .header {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	background-color: #E0E0E0;
+	width:100%;
+  }
+  
+  .task-header {
+	display: inline-block;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background-color: skyblue;
+	width:100%;
+  }
+  
+  .draggable {
+	width: 303px;
+    height: 118px;
+    background-color: #a8dcc8;
+    margin: 5px auto;
+	line-height: 5em;
+	border-radius: 2%;
+  }

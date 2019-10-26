@@ -13,6 +13,10 @@ export default class LoginPage extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	handleClick = () => {
+		window.location.replace('http://localhost:3000/register');
+	}
+
 	handleChange = event => {
 		this.setState({
 			userName: event.target.value,
@@ -35,7 +39,6 @@ export default class LoginPage extends React.Component {
 				axios
 					.get('http://localhost:8081/users/login/?userName=' + user.userName + '&password=' + user.password)
 					.then(res => {
-						console.log(res);
 						if (res.data.id !== undefined) {
 							window.location.replace('http://localhost:3000/users/get/' + res.data.id);
 						} else {
@@ -72,16 +75,11 @@ export default class LoginPage extends React.Component {
 							<input type="submit" className="fadeIn fourth" value="Log In"></input>
 						</form>
 						<div id="formFooter">
-							<a className="underlineHover" href="#">
-								Forgot Password?
+							<a className="underlineHover" onClick={this.handleClick}>
+								Would you like to register?
 							</a>
 						</div>
 					</div>
-				</div>
-
-				<div className="toast">
-					<div className="toast-header">Toast Header</div>
-					<div className="toast-body">Some text inside the toast body</div>
 				</div>
 			</div>
 		);

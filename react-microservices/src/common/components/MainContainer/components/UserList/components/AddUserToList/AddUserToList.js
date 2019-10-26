@@ -54,7 +54,7 @@ export default class AddUserToList extends React.Component {
             <div className='addUserToList'>
                 <div>
                     <div>
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#addUserToList">+ Add User</button>
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#addUserToList"><i class="fas fa-user-plus"></i> User</button>
                     </div>
                     <div className="modal fade" id="addUserToList" tabIndex="-1" role="dialog" aria-labelledby="addUserToListLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
@@ -69,13 +69,9 @@ export default class AddUserToList extends React.Component {
                                     <div>
                                         <form onSubmit={this.handleSubmit}>
                                             <input type="text" id="firstName" className="form-control" placeholder="Firstname" onChange={this.handleChange} />
-                                            <br />
                                             <input type="text" id="lastName" className="form-control" placeholder="Lastname" onChange={this.handleChange} />
-                                            <br />
                                             <input type="text" id="userName" className="form-control" placeholder="Username" onChange={this.handleChange} />
-                                            <br />
-                                            <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange}></input>
-                                            <br />
+                                            <input type="text" className="form-control" id="password" placeholder="Password" onChange={this.handleChange}></input>
                                             <button type="button" className="btn btn-primary" type="submit" value="Submit">Save</button>
                                         </form>
                                     </div>
