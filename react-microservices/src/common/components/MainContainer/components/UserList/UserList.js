@@ -12,7 +12,7 @@ export default class UserList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8081/users/getAll', { useCredentails: true }).then(res => {
+        axios.get('http://localhost:8081/users/getAllUsersFor/' + this.props.id, { useCredentails: true }).then(res => {
             this.setState({ users: res.data });
         });
     }
@@ -21,8 +21,8 @@ export default class UserList extends React.Component {
         axios.delete('http://localhost:8081/users/delete/' + userId)
             .then(() => {
                 window.location.reload();
-            }).catch(err => {
-                alert(err);
+            }).catch((error) => {
+                alert(error.response.data);
             });
     }
 

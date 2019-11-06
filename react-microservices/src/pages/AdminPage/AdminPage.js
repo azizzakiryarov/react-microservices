@@ -1,17 +1,17 @@
 import React from 'react'
-import UserList from '../../common/components/MainContainer/components/UserList/UserList'
 import InLoggedNavbar from '../../common/components/MainContainer/components/InLoggedNavbar/InLoggedNavbar'
-import UserItem from '../../common/components/MainContainer/components/UserList/components/UserItem/UserItem'
-import AddUserToList from '../../common/components/MainContainer/components/UserList/components/AddUserToList/AddUserToList'
+import AddTeam from '../../common/components/MainContainer/components/TeamList/components/AddTeam/AddTeam'
+import TeamList from '../../common/components/MainContainer/components/TeamList/TeamList'
+import TeamItem from '../../common/components/MainContainer/components/TeamList/components/TeamItem/TeamItem'
 
 const AdminPage = ({ match }) => (
   <div>
     <div className='Home'>
       <InLoggedNavbar id={match.params.id} />
       <h1 className='greeting-home'> Welcome to Admin Page </h1>
-      <UserItem id={match.params.id} />
-      <AddUserToList />
-      <UserList />
+      <TeamItem id={match.params.id} />
+      <AddTeam />
+      <TeamList />
     </div>
   </div>
 )

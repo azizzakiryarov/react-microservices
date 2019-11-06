@@ -5,7 +5,8 @@ export default class InLoggedNavbar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      user: ''
+      user: '',
+      teamId: ''
     }
   }
 
@@ -15,12 +16,19 @@ export default class InLoggedNavbar extends React.Component {
     })
   }
 
-  handleHome = () =>{
+  handleHome = () => {
     window.location.replace('http://localhost:3000/home/' + this.props.id);
   }
 
-  handleDashboard = () =>{
+  handleDashboard = () => {
     window.location.replace('http://localhost:3000/dashboard/' + this.props.id);
+  }
+
+  handleTeam = () => {
+    axios.get('http://localhost:8081/users/getTeamId/' + this.props.id).then(res => {
+      this.setState({ teamId: res.data })
+      window.location.replace('http://localhost:3000/teams/get/' + this.state.teamId);
+    })
   }
 
   handleLoggedOut = () =>{
@@ -55,6 +63,9 @@ export default class InLoggedNavbar extends React.Component {
               </li>
               <li className='nav-item active'>
                 <a className='nav-link' href="#" onClick={this.handleDashboard}>Dashboard<span className='sr-only'>(current)</span></a>
+              </li>
+              <li className='nav-item active'>
+                <a className='nav-link' href="#" onClick={this.handleTeam}>Team<span className='sr-only'>(current)</span></a>
               </li>
             </ul>
             <ul className="nav navbar-nav navbar-right">

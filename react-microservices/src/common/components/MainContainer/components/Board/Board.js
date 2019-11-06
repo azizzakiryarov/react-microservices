@@ -17,21 +17,21 @@ export default class Board extends React.Component {
 		});
 	}
 
-	onDragStart = (ev, id) => {
-		ev.dataTransfer.setData('id', id);
+	onDragStart = (event, id) => {
+		event.dataTransfer.setData('id', id);
 	};
 
-	onDragOver = ev => {
-		ev.preventDefault();
+	onDragOver = event => {
+		event.preventDefault();
 	};
 
-	onDrop = (ev, state) => {
-		let id = ev.dataTransfer.getData('id');
+	onDrop = (event, state) => {
+		let id = event.dataTransfer.getData('id');
 
 		let issues = this.state.issues.filter(issue => {
 			if (issue.id == id) {
 				issue.issueState = state;
-				axios.put('http://localhost:8869/issues/updateState/' + issue.id + '?issueState=' + issue.issueState).then(() => {window.location.reload();}).catch(err => {alert(err);});
+				axios.put('http://localhost:8869/issues/updateState/' + issue.id + '?issueState=' + issue.issueState).then(() => {}).catch(err => {alert(err);});
 			}
 			return issue;
 		});
@@ -70,7 +70,8 @@ export default class Board extends React.Component {
 						className="draggable"
 					>
 						{issue.comment}
-						{issue.user.userName}
+						<br/>
+						<div className="issue-userName">{issue.user.firstName} {issue.user.lastName}</div>
 						<NavLink to={`/issues/update/${issue.id}`}>
 							<button
 								type="button"
@@ -100,7 +101,7 @@ export default class Board extends React.Component {
 						className="draggable"
 					>
 						{issue.comment}
-						{issue.user.userName}
+						<div className="issue-userName">{issue.user.firstName} {issue.user.lastName}</div>
 						<NavLink to={`/issues/update/${issue.id}`}>
 							<button
 								type="button"
@@ -130,7 +131,7 @@ export default class Board extends React.Component {
 						className="draggable"
 					>
 						{issue.comment}
-						{issue.user.userName}
+						<div className="issue-userName">{issue.user.firstName} {issue.user.lastName}</div>
 						<NavLink to={`/issues/update/${issue.id}`}>
 							<button
 								type="button"
@@ -160,7 +161,7 @@ export default class Board extends React.Component {
 						className="draggable"
 					>
 						{issue.comment}
-						{issue.user.userName}
+						<div className="issue-userName">{issue.user.firstName} {issue.user.lastName}</div>
 						<NavLink to={`/issues/update/${issue.id}`}>
 							<button
 								type="button"
@@ -190,7 +191,7 @@ export default class Board extends React.Component {
 						className="draggable"
 					>
 						{issue.comment}
-						{issue.user.userName}
+						<div className="issue-userName">{issue.user.firstName} {issue.user.lastName}</div>
 						<NavLink to={`/issues/update/${issue.id}`}>
 							<button
 								type="button"
