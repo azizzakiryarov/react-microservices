@@ -18,7 +18,7 @@ export default class AllIssues extends React.Component {
 	}
 
 	handleDelete = issueId => {
-		axios.delete('http://localhost:8869/issues/delete/' + issueId + '?userId=' + this.props.id).then(() => {window.location.reload();}).catch(err => {alert(err);});
+		axios.delete('http://localhost:8869/issues/delete/' + issueId + '?userId=' + this.props.id).then(() => {window.location.reload();}).catch(error => {alert(error.response.data);});
 	};
 
 	render() {

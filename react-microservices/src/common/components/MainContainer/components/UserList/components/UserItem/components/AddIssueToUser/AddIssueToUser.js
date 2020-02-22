@@ -28,8 +28,8 @@ export default class AddIssueToUser extends React.Component {
         axios.post('http://localhost:8869/issues/add?comment=' + issue.comment + '&userId=' + this.props.id
             ).then(() => {
                 window.location.reload();
-            }).catch(err => {
-                alert(err);
+            }).catch(error => {
+                alert(error.response.data);
             });
     }
 

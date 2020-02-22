@@ -12,7 +12,6 @@ export default class IssueItemUpdate extends React.Component {
             users:[]
 
 		};
-
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -37,8 +36,8 @@ export default class IssueItemUpdate extends React.Component {
 		axios.put('http://localhost:8869/issues/update/' + issueId + '?comment=' + comment + '&issueState=' + issueState + '&userId=' + userId).then(() => {
             axios.put('http://localhost:8869/issues/assignIssueTo/' + issueId + '?userId=' + assighTo).then(() => {
                 window.location.replace('http://localhost:3000/users/get/' + userId);
-            }).catch(err => {alert(err);});
-        }).catch(err => {alert(err);});
+            }).catch(error => {alert(error.response.data);});
+        }).catch(error => {alert(error.response.data);});
 	};
 
 	render() {

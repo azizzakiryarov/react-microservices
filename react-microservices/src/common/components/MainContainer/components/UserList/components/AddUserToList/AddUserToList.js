@@ -53,8 +53,8 @@ export default class AddUserToList extends React.Component {
             '&teamId=' + this.props.id, 
             { config }).then(() => {
                 window.location.reload();
-            }).catch(err => {
-                alert(err);
+            }).catch(error => {
+                alert(error.response.data);
             });
     }
 

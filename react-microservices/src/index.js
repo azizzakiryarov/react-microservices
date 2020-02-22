@@ -4,4 +4,4 @@ import './common/css/master.css'
 import Routes from './routes/Routes'
 
 ReactDOM.render(
-    <Routes />, document.getElementById('root'))
+  <Routes />, document.getElementById('root'))

@@ -35,8 +35,8 @@ export default class AddTeam extends React.Component {
         axios.post('http://localhost:8082/teams/add/?teamName=' + team.teamName + '&teamDescription=' + team.teamDescription, { config }
             ).then(() => {
                 window.location.reload();
-            }).catch(err => {
-                alert(err);
+            }).catch(error => {
+                alert(error.response.data);
             });
     }
 

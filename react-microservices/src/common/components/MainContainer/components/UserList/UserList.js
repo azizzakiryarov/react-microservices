@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import $ from 'jquery';
 
 export default class UserList extends React.Component {
     constructor(props) {
@@ -15,6 +16,13 @@ export default class UserList extends React.Component {
         axios.get('http://localhost:8081/users/getAllUsersFor/' + this.props.id, { useCredentails: true }).then(res => {
             this.setState({ users: res.data });
         });
+
+        /*var userStates = $(".list-group").children().find('.userState');
+        userStates.toArray().forEach(div => {
+            console.log(div.textContent);
+       });*/
+
+
     }
 
     handleDelete = (userId) => {
@@ -27,13 +35,17 @@ export default class UserList extends React.Component {
     }
 
     render() {
-        return <ul className="list-group user-list">
-            {this.state.users.map(user =>
-                <li className="list-group-item list-group-item-action" key={user.id}>
-                    <NavLink to={`/users/get/${user.id}`}>{user.firstName} {user.lastName} {user.userState}</NavLink>
-                    <NavLink to={`/users/update/${user.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateUser"><i class="fas fa-user-edit"></i></button></NavLink>
-                    <button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, user.id)}><i class="fas fa-user-times"></i></button>
-                </li>)}
-        </ul>
+        return(
+            <div className="user-container">
+                <ul className="list-group user-list">
+                    {this.state.users.map(user =>
+                        <li className="list-group-item list-group-item-action" key={user.id}>
+                            <NavLink to={`/users/get/${user.id}`}>{user.firstName} {user.lastName} <div className='userState'>{user.userState}</div></NavLink>
+                            <NavLink to={`/users/update/${user.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateUser"><i class="fas fa-user-edit"></i></button></NavLink>
+                            <button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, user.id)}><i class="fas fa-user-times"></i></button>
+                        </li>)}
+                </ul>
+            </div>
+        )
     }
 }

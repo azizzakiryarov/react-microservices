@@ -18,19 +18,21 @@ export default class IssueList extends React.Component {
 	}
 
 	handleDelete = issueId => {
-		axios.delete('http://localhost:8869/issues/delete/' + issueId + '?userId=' + this.props.id).then(() => {window.location.reload();}).catch(err => {alert(err);});
+		axios.delete('http://localhost:8869/issues/delete/' + issueId + '?userId=' + this.props.id).then(() => {window.location.reload();}).catch(error => {alert(error.response.data);});
 	};
 
 	render() {
 		return (
-			<ul className="list-group issueList">
-				{this.state.issues.map(issue => (
-					<li className="list-group-item list-group-item-action" key={issue.id}>{issue.comment}<div className="issueState">{issue.issueState}</div>
-                    <NavLink to={`/issues/update/${issue.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateIssue"><i class="far fa-edit"></i></button></NavLink>
-                    <button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, issue.id)}>x</button>
-					</li>
-				))}
-			</ul>
+			<div className="issue-container">
+				<ul className="list-group issueList">
+					{this.state.issues.map(issue => (
+						<li className="list-group-item list-group-item-action" key={issue.id}>{issue.comment}<div className="issueState">{issue.issueState}</div>
+						<NavLink to={`/issues/update/${issue.id}`}><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#updateIssue"><i class="far fa-edit"></i></button></NavLink>
+						<button type="button" className="btn btn-danger" onClick={this.handleDelete.bind(this, issue.id)}>x</button>
+						</li>
+					))}
+				</ul>
+			</div>
 		);
 	}
 }

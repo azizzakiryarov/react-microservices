@@ -43,8 +43,8 @@ export default class UserItemUpdate extends React.Component {
             '&userState=' + user.userState)
             .then(res => {
                 window.location.replace('http://localhost:3000/users/get/' + res.data.id);
-            }).catch(err => {
-                alert(err);
+            }).catch(error => {
+                alert(error.response.data);
             });
     }
 

@@ -31,7 +31,7 @@ export default class Board extends React.Component {
 		let issues = this.state.issues.filter(issue => {
 			if (issue.id == id) {
 				issue.issueState = state;
-				axios.put('http://localhost:8869/issues/updateState/' + issue.id + '?issueState=' + issue.issueState).then(() => {}).catch(err => {alert(err);});
+				axios.put('http://localhost:8869/issues/updateState/' + issue.id + '?issueState=' + issue.issueState).then(() => {}).catch(error => {alert(error.response.data);});
 			}
 			return issue;
 		});
@@ -45,8 +45,8 @@ export default class Board extends React.Component {
 			.then(() => {
 				window.location.reload();
 			})
-			.catch(err => {
-				alert(err);
+			.catch(error => {
+				alert(error.response.data);
 			});
 	};
 

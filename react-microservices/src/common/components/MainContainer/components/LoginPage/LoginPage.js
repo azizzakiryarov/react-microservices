@@ -33,9 +33,6 @@ export default class LoginPage extends React.Component {
 		};
 
 		if (user.userName !== undefined && user.password !== undefined) {
-			if (user.userName === 'admin' && user.password === 'admin') {
-				window.location.replace('http://localhost:3000/users');
-			} else {
 				axios
 					.get('http://localhost:8081/users/login/?userName=' + user.userName + '&password=' + user.password)
 					.then(res => {
@@ -45,10 +42,9 @@ export default class LoginPage extends React.Component {
 							alert('Wrong username or password...');
 						}
 					})
-					.catch(err => {
-						alert(err);
+					.catch(error => {
+						alert(error.response.data);
 					});
-			}
 		}
 	};
 
