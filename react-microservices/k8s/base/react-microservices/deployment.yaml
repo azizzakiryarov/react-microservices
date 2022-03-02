@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: microservices
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-microservices-deployment
+  namespace: microservices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: react
+        tier: frontend
+    spec:
+      containers:
+        - name: react-microservices
+          image: azizzakiryarov/react-microservices:latest
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "550Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
